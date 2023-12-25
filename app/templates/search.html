@@ -1,0 +1,532 @@
+<!DOCTYPE HTML>
+<html>
+
+
+<title>鱼书</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='/3rd/ui/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/base.css') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='/images/icon.png') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css') }}">
+
+
+<body>
+
+<div class="nav-self">
+    <div style="padding-top: inherit" class="container">
+        <form class="form-inline" action="/book/search" method="get">
+            <div class="flex-vertical-center-height">
+                <div class="col-md-2  col-xs-3 logo">
+                    <img src="{{ url_for('static', filename='/images/logo-yushu.png') }}"/>
+                </div>
+                <div style="margin-left:20px;" class="col-md-7  col-xs-6 input-group">
+                    <input name="q" type="text" placeholder="ISBN、图书名称"
+                           class="form-control input-sm">
+                    <span class="input-group-btn">
+                            <input class="btn btn-search" type="submit" value="搜索"/>
+                        </span>
+                </div>
+                <div class="col-md-3 col-xs-3" style="padding-right: 0">
+
+
+                    <div class="container-height flex-vertical-center login-box">
+
+                        <div style="height: 100%; width: 100%;display: flex; justify-content: flex-end; align-items: center">
+                            <a href="/login">登录</a>
+                            <a class="btn-end" href="/register">注册</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="sub-nav flex-vertical-center">
+    <div class="container" style="width: 100%">
+        <div class="row">
+            <div class="col-md-2 col-xs-3 col-md-offset-2">
+                <a id="recent" href="/"
+                   class="flex-vertical-hor-center">
+                    <img src="{{ url_for('static', filename='/images/upload.png') }}"/>
+                    <span>最近上传</span>
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a id="gifts" href="/my/gifts"
+                   class="flex-vertical-hor-center">
+                    <img src="{{ url_for('static', filename='/images/gift.png') }}"/>
+                    <span>赠送清单</span>
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a id="wishes" href="/my/wish"
+                   class="flex-vertical-hor-center">
+                    <img src="{{ url_for('static', filename='/images/wish.png') }}"/>
+                    <span>心愿清单</span>
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a id="pending" href="/pending"
+                   class="flex-vertical-hor-center">
+                    <img src="{{ url_for('static', filename='/images/fish.png') }}"/>
+                    <span>鱼漂</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class='container'>
+    <div class="row">
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+        </div>
+    </div>
+    <div id="books" class="row">
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787806579060/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s1326174.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">查令十字街84号</span>
+                    <div class="description-font"><span>作者：</span><span>[美]海莲·汉芙</span>
+                    </div>
+                    <span class="summary description-font">这本被全球人深深钟爱的书，记录了纽约女作家海莲和一家伦敦旧书店的书商弗兰克之间的书缘情缘。双方二十年间始终未曾谋面，相隔万里，深厚情意却能莫逆于心。无论是平淡生活中的讨书买书论书，还是书信中所蕴藏的难以言明的情感，都给人以强烈的温暖和信任。这本书既表现了海莲对书的激情之爱，也反映了她对弗兰克的精神之爱。海莲的执著、风趣、体贴、率真，跳跃于一封封书信的字里行间，使阅读成为一种愉悦而柔软的经历。来往的书信被海莲汇集成此书，被译成数十种文字流传。\n译者陈建铭是台湾一位古旧书店的工作人员，他在未被出版方邀作译者之前，便凭着自己对《查令十字街84号》的热爱动手开始翻译其中的章节。\n现在世间已无查令十字街84号的旧书店，但英国文学，古本图书，伦敦巷陌，书中的这些话题仍不断激起后来者的思念和共鸣。广播、舞台和银幕也钟情于这本爱书人的掌上明珠，每年都有世界各地的书迷到伦敦查令十字街朝圣，渐渐地，《查令十字街84号》成为全球爱书人之间的一个暗号。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9781492339243/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img1.doubanio.com/lpic/s27289138.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">Python for Informatics</span>
+                    <div class="description-font"><span>作者：</span><span>Dr. Charles R Severance</span>
+                    </div>
+                    <span class="summary description-font">None</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787302071976/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s1671095.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">敏捷软件开发</span>
+                    <div class="description-font"><span>作者：</span><span>[美]RobertC·Martin</span>
+                    </div>
+                    <span class="summary description-font">在本书中，享誉全球的软件开发专家和软件工程大师Robert C.Martin将向您展示如何解决软件开发人员、项目经理及软件项目领导们所面临的最棘手的问题。这本综合性、实用性的敏捷开发和极限编程方面的指南，是由敏捷开发的创始人之一所撰写的。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787115416292/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img1.doubanio.com/lpic/s29086659.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">Python网络数据采集</span>
+                    <div class="description-font"><span>作者：</span><span>[美]米切尔</span>
+                    </div>
+                    <span class="summary description-font">本书采用简洁强大的Python语言，介绍了网络数据采集，并为采集新式网络中的各种数据类型提供了全面的指导。第一部分重点介绍网络数据采集的基本原理：如何用Python从网络服务器请求信息，如何对服务器的响应进行基本处理，以及如何以自动化手段与网站进行交互。第二部分介绍如何用网络爬虫测试网站，自动化处理，以及如何通过更多的方式接入网络。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787508315546/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s1669771.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">重构</span>
+                    <div class="description-font"><span>作者：</span><span>[美]MartinFowler</span>
+                    </div>
+                    <span class="summary description-font">Martin Fowler和《重构:改善既有代码的设计》(中文版)另几位作者清楚揭示了重构过程，他们为面向对象软件开发所做的贡献，难以衡量。《重构:改善既有代码的设计》(中文版)解释重构的原理（principles）和最佳实践方式（best practices），并指出何时何地你应该开始挖掘你的代码以求改善。《重构:改善既有代码的设计》(中文版)的核心是一份完整的重构名录（catalog of refactoring），其中每一项都介绍一种经过实证的代码变换手法（code transformation）的动机和技术。某些项目如Extract Method和Move Field看起来可能很浅显，但不要掉以轻心，因为理解这类技术正是有条不紊地进行重构的关键。点击进入该书更多详细信息。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787302162063/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img1.doubanio.com/lpic/s6908318.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">大话设计模式</span>
+                    <div class="description-font"><span>作者：</span><span>程杰</span>
+                    </div>
+                    <span class="summary description-font">本书通篇都是以情景对话的形式，用多个小故事或编程示例来组织讲解GOF(设计模式的经典名著——Design Patterns:Elements of Reusable Object-Oriented Software，中译本名为《设计模式——可复用面向对象软件的基础》的四位作者EIich Gamma、Richard Helm、Ralph Johnson，以及John Vlissides，这四人常被称为Gang of Four，即四人组，简称GoF)总结的23个设计模式。本书共分为29章。其中，第1、3、4、5章着重讲解了面向对象的意义、好处以及几个重要的设计原则；第2章，以及第6到第28章详细讲解了23个设计模式；第29章是对设计模式的全面总结，附录部分是通过一个例子的演变为初学者介绍了面向对象的基本概念。本书的特色是通过小菜与大鸟的趣味问答，在讲解程序的不断重构和演变过程中，把设计模式的学习门槛降低，让初学者可以更加容易地理解——为什么这样设计才是好的?是怎样想到这样设计的?以达到不但授之以“鱼”，还授之以“渔”的目的。引导读者体会设计演变过程中蕴藏的了、智慧。    本书适合编程初学者或希望在面向对象编程上有所提高的开发人员阅读。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787020075379/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s6110882.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">冯至作品新编</span>
+                    <div class="description-font"><span>作者：</span><span>解志熙 编</span>
+                    </div>
+                    <span class="summary description-font">《冯至作品新编》：滥觞于五四新文化运动的中国现代文学，虽然只有三十年的短暂历程，但在东西方文化浪潮的交汇与激荡之中，却风生水起、云蒸霞蔚，涌现出一代灿若星河的新文学作家，开启了中国文学现代化的伟大新纪元。辑入本丛书者，均为名家名作，风格绚丽多彩，文体摇曳生姿，各臻其美，蔚为大观。\n“新编”之“新”，在于既注重择选经过时间淘洗、脍炙人口的优秀文学经典，又着意搜集那些过去不大为一般读者所知的随笔、散论、杂谈、序跋、日记、书信等非虚构的精彩篇什，以更完整、更集中、更丰富地反映和体现作家一生著述的思想艺术全貌。这后一种文字，虽不是文学园林里的殿堂碑碣，但亦如其中的雕阑画础，于细微处或能见出真面目与真精神来，是解读、体悟作家作品所不可缺少的。两个部分各有千秋、各擅胜场，互为补充、相得益彰，读者可以“借一斑而窥全豹”，领略中国现代文学难以企及的博大气象和独特魅力。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787508315041/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img1.doubanio.com/lpic/s1459617.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">大规模C++程序设计</span>
+                    <div class="description-font"><span>作者：</span><span>John Lakos</span>
+                    </div>
+                    <span class="summary description-font">在本书中，Lakos介绍了将大型系统分解成较小且较好管理的组件层次结构（不是继承）的过程。这种具有非循环物理依赖的系统的维护、测试和重用从根本上比相互紧密依赖的系统更容易且更经济。此外，本书还说明了遵从好的物理设计和逻辑设计规划的动机。Lakos给读者提供了一系列用来消除循环依赖、编译时依赖和连接时（物理）依赖的特殊技术。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787802495807/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s4547913.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">苹果风暴</span>
+                    <div class="description-font"><span>作者：</span><span>(美)林志共//王静</span>
+                    </div>
+                    <span class="summary description-font">《苹果风暴》阶段性地描述苹果的过去，分析苹果的问题和最终解决问题的经过，抛砖引玉，让读者在阅读中更加明朗化地了解苹果公司及乔布斯的方方面面。不仅描写苹果公司的商业模式，也探讨乔布斯的管理手段，同时还联想中国企业在商业模式上可以借鉴什么。\n《苹果风暴》共有七章，重点介绍了苹果公司的历史及现状、技术创新、公司策略、市场营销、企业文化、经营管理及未来的发展，部分内容读者或多或少已经阅读或得知，《苹果风暴》进行了更加系统性地整理，加上非专业或粉丝性的探讨，读者可以轻松地阅读。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787115179289/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s4687321.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">编程珠玑</span>
+                    <div class="description-font"><span>作者：</span><span>[美]JonBentley</span>
+                    </div>
+                    <span class="summary description-font">本书是计算机科学方面的经典名著。书的内容围绕程序设计人员面对的一系列实际问题展开。作者Jon Bentley 以其独有的洞察力和创造力，引导读者理解这些问题并学会解决方法，而这些正是程序员实际编程生涯中至关重要的。本书的特色是通过一些精心设计的有趣而又颇具指导意义的程序，对实用程序设计技巧及基本设计原则进行了透彻而睿智的描述，为复杂的编程问题提供了清晰而完备的解决思路。本书对各个层次的程序员都具有很高的阅读价值。.\n多年以来，当程序员们推选出最心爱的计算机图书时，《编程珠玑》总是位列前列。正如自然界里珍珠出自细沙对牡蛎的磨砺，计算机科学大师Jon Bentley以其独有的洞察力和创造力，从磨砺程序员的实际问题中凝结出一篇篇不朽的编程“珠玑”，成为世界计算机界名刊《ACM通讯》历史上最受欢迎的专栏，最终结集为两部不朽的计算机科学经典名著，影响和激励着一代又一代程序员和计算机科学工作者。本书为第一卷，主要讨论计算机科学中最本质的问题：如何正确选择和高效地实现算法。..\n在书中，作者选取许多具有典型意义的复杂编程和算法问题，生动描绘了历史上众大师们在探索解决方案中发生的轶事、走过的弯路和不断精益求精的历程，引导读者像真正的程序员和软件工程师那样富于创新性地思考，并透彻阐述和总结了许多独特而精妙的设计原则、思考和解决问题的方法以及实用程序设计技巧。解决方案的代码均以C/C++语言编写，不仅有趣，而且有很大的实战示范意义。每章后所附习题极具挑战性和启发性，书末给出了简洁的解答。...</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787535439765/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img1.doubanio.com/lpic/s6916838.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">一句顶一万句</span>
+                    <div class="description-font"><span>作者：</span><span>刘震云</span>
+                    </div>
+                    <span class="summary description-font">《一句顶一万句》的故事很简单，小说的前半部写的是过去：孤独无助的吴摩西失去唯一能够“说得上话”的养女，为了寻找，走出延津；小说的后半部写的是现在：吴摩西养女的儿子牛爱国，同样为了摆脱孤独寻找“说得上话”的朋友，走向延津。一走一来，延宕百年。书中的人物大部分是中国最底层的老百姓，偏偏安排了一个意大利牧师老詹。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787105069491/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s1538965.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">半生缘</span>
+                    <div class="description-font"><span>作者：</span><span>张爱玲 原著 张狂 改编    秋秋 绘</span>
+                    </div>
+                    <span class="summary description-font">本书在故事情节上和语言风格上，基本遵循原著。从婉约情爱到苍凉人生，本书的展述和刻画，也别有一番深沉的味道。张爱玲小说创作于世道曲折之时，对苍凉人生的体味是不言而喻的。原著《十八春》的结局有一道光明的“尾巴”，写男女主人以走过十八年曲折的情路之后，虽然各有家庭，但还是一同去参加国家刚解放时东北的建设，化哀怨为淡泊。而通过改编，绘本很好地以两只手套作为线索，通过世钧两次去树林找手套，把整个故事串起来并加入宿命论，用一只手套代表缘，一只手套代表分，暗喻之前他们是有缘无分，之后是有分无缘。    《半生缘》写的本就</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787115255952/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s24551726.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">MySQL技术内幕（第4版）</span>
+                    <div class="description-font"><span>作者：</span><span>[美] Paul DuBois</span>
+                    </div>
+                    <span class="summary description-font">由杜波依斯编著的《MySQL技术内幕（第4版）》介绍了MySQL的基础知识及其有别于其他数据库系统的独特功能，包括SQL的工作原理和MySQL API的相关知识；讲述了如何将MySQL与Perl或PHP等语言结合起来，为数据库查询结果生成动态Web页面，如何编写MySQL数据访问程序；详细讨论了数据库管理和维护、数据目录的组织和内容、访问控制、安全连接等。附录还提供了软件的安装信息，罗列了MySQL数据类型、函数、变量、语法、程序、API等重要细节。    《MySQL技术内幕（第4版）》是一部全面的MySQL指南，对数据库系统感兴趣的读者都能从中获益。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787121215186/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s27294106.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">Nginx高性能Web服务器详解</span>
+                    <div class="description-font"><span>作者：</span><span>苗泽</span>
+                    </div>
+                    <span class="summary description-font">《Nginx高性能Web服务器详解》全面介绍了当前Internet上流行的一款开放源代码的Web服务器——Nginx。全书一共分为四大部分，分别从入门、功能、实现和应用等四个方面对Nginx服务器的知识进行完整阐述，从而满足广大读者在应用Nginx服务器时的普遍性需求。同时也深入剖析了Nginx服务器的工作原理和实现技术，对其中使用到的数据结构和方法进行了详细阐述，并且结合实际的应用情况给出了多个基于Nginx服务器，同时还部署有其他典型服务器的分布式网站架构部署配置。\n《Nginx高性能Web服务器详解》特别适合于希望了解和掌握Nginx服务器应用技术和实现技术的广大教师、学生和电脑爱好者阅读，对使用Nginx服务器搭建Web服务器架构或进行网络服务器应用开发的技术人员尤其具有重要的阅读和参考价值。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787115422699/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s29400403.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">Python编程快速上手</span>
+                    <div class="description-font"><span>作者：</span><span>斯维加特 (Al Sweigart)</span>
+                    </div>
+                    <span class="summary description-font">如今，人们面临的大多数任务都可以通过编写计算机软件来完成。Python是一种解释型、面向对象、动态数据类型的高级程序设计语言。通过Python编程，我们能够解决现实生活中的很多任务。\n本书是一本面向实践的Python编程实用指南。本书的目的，不仅是介绍Python语言的基础知识，而且还通过项目实践教会读者如何应用这些知识和技能。本书的首部分介绍了基本Python编程概念，第二部分介绍了一些不同的任务，通过编写Python程序，可以让计算机自动完成它们。第二部分的每一章都有一些项目程序，供读者学习。每章的末尾还提供了一些习题和深入的实践项目，帮助读者巩固所学的知识。附录部分提供了所有习题的解答。\n本书适合任何想要通过Python学习编程的读者，尤其适合缺乏编程基础的初学者。通过阅读本书，读者将能利用强大的编程语言和工具，并且会体会到Python编程的快乐。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787115313980/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s28341985.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">SQL必知必会</span>
+                    <div class="description-font"><span>作者：</span><span>福达 (Ben Forta)</span>
+                    </div>
+                    <span class="summary description-font">SQL语法简洁，使用方式灵活，功能强大，已经成为当今程序员不可或缺的技能。\n本书是深受世界各地读者欢迎的SQL经典畅销书，内容丰富，文字简洁明快，针对Oracle、SQL Server、MySQL、DB2、PostgreSQL、SQLite等各种主流数据库提供了大量简明的实例。与其他同类图书不同，它没有过多阐述数据库基础理论，而是专门针对一线软件开发人员，直接从SQL SELECT开始，讲述实际工作环境中最常用和最必需的SQL知识，实用性极强。通过本书，读者能够从没有多少SQL经验的新手，迅速编写出世界级的SQL！\n本书是麻省理工学院、伊利诺伊大学等众多大学的参考教材。除了作为教程之外，独特的编排方式还使本书成为方便的快速查询手册。\n作者为本书专门开设了网站，提供下载、勘误和答疑：\nhttp://forums.forta.com/threads.cfm?forumid=A1031720-3048-80A9-EF986F59D2959184</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787115191120/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s5968156.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">MySQL必知必会</span>
+                    <div class="description-font"><span>作者：</span><span>[英] Ben Forta</span>
+                    </div>
+                    <span class="summary description-font">《MySQL必知必会》MySQL是世界上最受欢迎的数据库管理系统之一。书中从介绍简单的数据检索开始，逐步深入一些复杂的内容，包括联结的使用、子查询、正则表达式和基于全文本的搜索、存储过程、游标、触发器、表约束，等等。通过重点突出的章节，条理清晰、系统而扼要地讲述了读者应该掌握的知识，使他们不经意间立刻功力大增。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787546302393/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s6100756.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">人间失格</span>
+                    <div class="description-font"><span>作者：</span><span>[日]太宰治</span>
+                    </div>
+                    <span class="summary description-font">《人间失格》是日本著名小说家太宰治最具影响力的小说作品，同时也是糸色望（注：动漫《再见！绝望先生》的主角）老师日常生活必备的读物之一。另外在日本轻小说《文学少女》第一卷中被大量提及。《人间失格》（又名《丧失为人的资格》）发表于1948年，是一部自传体的小说，纤细的自传体中透露出极致的颓废，毁灭式的绝笔之作。太宰治巧妙地将自己的人生与思想，隐藏于主角叶藏的人生遭遇，藉由叶藏的独白，窥探太宰治的内心世界，一个“充满了可耻的一生”。在发表这部作品的同年，太宰治就自杀身亡。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787544741828/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s27142783.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">李光耀回忆录</span>
+                    <div class="description-font"><span>作者：</span><span>[新加坡]李光耀</span>
+                    </div>
+                    <span class="summary description-font">★新加坡开国元老、“新加坡国父”李光耀最新亲笔自传\n★简体中文版首次正式授权\n★独家大量图片，完整呈现作者生平\n★整本回忆录作者不自觉地透露出成功领导者迥异于失败领导者的特质：智慧、支配力、自信、知识及活动力。李光耀对新加坡在世界上所处地位的判断，他对变化着的世界的判断等等都充满了睿智。他的支配力可以从一些小事上就可窥出端倪。李先生的自信主要表现在，他推行经过深思熟虑的政策都是坚定不移的，不为众人左右。他的特质决定了他具有神召一样的影响力，有表现奇迹和预见未来的超凡能力。\n★时势造英雄与英雄造时势 李光耀天生对时势具有极度的敏感，他在律师事务所当见习律师时能顺势而上，立刻组建人民行动党，提出符合人民实际意愿的行动纲领，经过曲折的过程取得政权。他作为天才的领导人，又能率领新加坡人民勇往直前，化危机为转机，从而创造了新加坡今日辉煌的成就，造就了骄人的“时势”：\n1954—1959 反殖民统治；\n1960—1961 人民行动党党内斗争与分裂；\n1963—1965 新、马合并与分裂；\n1965 独立建国；\n1965—1971 经济蓬勃发展；\n1980至今 领导权转移并继续发挥强势的影响力\n★该回忆录充分展示了李光耀先生的治国理念：\n1.精英主义 新加坡受限于土地和自然资源的匮乏，所能凭借的只有人力资源。李光耀认为政府必须由国家的精英来领导，治国者必须是最优秀的人才。书中可见，为他提出种种报告书、受命成立专门委员会的都是极其优秀的人物：吴庆瑞、杜进才、黄庆新、何品等等。\n比如，李光耀和自己的精英团队几十年在教育领域精心打造的十几所特学小学、特选中学，也都是在为国家培养未来的精英团队。\n2.贤能制度 李光耀回忆录用很多篇幅向读者详尽展示了他为了贯彻精英主义，如何将新加坡构建成一个任人唯贤的社会，如何在政府体系中建构独特的成就去向的业绩政治，如何通过会考制度、奖学金辅助、出国深造等方式让表现优异、学有专精的优秀分子得以在出国留学后，进入政府机关服务。\n3.实用主义 回忆录处处彰显了李光耀在其领导行为中强烈的实用主义倾向。一切都要对新加坡的发展有用、有利。这一原则确保了新加坡在冷战期间能够避免东西方意识形态对立下产生的各种干扰，致力于本国工业化和现代化的建设。\n4.亚洲价值 回忆录中，李光耀一直通过各种事例（例如长子李显龙的成长过程）强调，新加坡只学习西方先进的科技和管理，绝不学习他们的颓废之风。他一直致力于通过华文和华文化来保持自己人民的根和血脉，让全民保持坚忍不拔和积极进取的中华优秀美德。他极力提倡儒家思想和伦理，甚至从幼稚园和小学就开始进行儒家思想的教育。\n★ 双语政策极大提升了新加坡的经济和国力。这不仅是教育兴国的成功范例，更是李光耀先生早在五六十年代就洞见了的凝聚社会人心的利器！\n是双语教育对新加坡人民影响至深，帮助巨大。掌握英语，可以打开全球视野，没有语言障碍，顺利地与不同国家的朋友打交道、做生意；掌握母语，则能增强他们对文化与根的认同，特别是坚忍不拔、自强不息的品格与价值观，令人终身受益。这是李先生的洞见。\n中国的崛起已经带动世界经济向亚洲转移，掌握华文华语无疑是一种优势。此书的出版，不仅让大家全面了解50年来政府制定双语政策的苦心，也更加佩服李光耀先生过人的智慧和前瞻性的眼光。他坚持不懈学习华文的精神，值得年轻一代效仿、追随。\n★另外书中还用相当的篇幅显示了李光耀其他一些治国之道，例如建立廉洁、高效的政府，维护种族和谐，对外开放，全民教育等等</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787539605951/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s1662165.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">张爱玲文集</span>
+                    <div class="description-font"><span>作者：</span><span>张爱玲</span>
+                    </div>
+                    <span class="summary description-font">第一卷：《牛》《霸王别姬》《沉香屑 第二炉香》《茉莉香片》《心经》《封锁》《琉璃瓦》《年轻的时候》《花凋》《殷宝滟送花楼会》《等》《桂花蒸 阿小悲秋》《留情》《鸿鸾禧》《相见欢》《色·戒》《五四遗事》\n第二卷：《沉香屑 第一炉香》《倾城之恋》《金锁记》《红玫瑰与白玫瑰》《连环套》《创世纪》《多少恨》《小艾》\n第三卷：《十八春》《怨女》\n第四卷：《迟暮》《秋雨》《书评四篇》《论卡通画之前途》《牧羊者素描》《心愿》《天才梦》《到底是上海人》《洋人看京戏及其他》《更衣记》《公寓生活记趣》《道路以目》《必也正名乎》《烬余录》《谈女人》《走！走到楼上去！》《有女同车》《爱》《论写作》《童言无忌》《造人》《打人》《说胡萝卜》《私语》《中国人的宗教》《诗与胡说》《写什么》《&lt;传奇&gt;再版序》《炎樱语录》《散戏》《忘不了的画》《谈跳舞》《谈音乐》《自己的文章》《夜营的喇叭》《借银灯》《银宫就学记》《存稿》《雨伞下》《谈画》《气短情长及其他》《“卷首玉照”及其他》《双声》《吉利》《我看苏青》《姑姑语录》《中国的日夜》《华丽缘》《有几句话同读者说》《&lt;太太万岁&gt;题记》《&lt;张爱玲短篇小说集&gt;自序》《&lt;爱默森文选&gt;译者序》《谈看书》《谈看书后记》《&lt;红楼梦魇&gt;自序》《&lt;张看&gt;自序》《&lt;惘然记&gt;序》《国语本&lt;海上花&gt;译后记》《&lt;海上花&gt;的几个问题》《表姨细姨及其他》《谈吃与画饼充饥》《“嗄？”？》《草炉饼》《附&lt;苏青、张爱玲对谈录&gt;》《论张爱玲的小说》《遥寄张爱玲》《张爱玲传略》《张爱玲作品系年》</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787802257863/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s4223836.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">好人难寻</span>
+                    <div class="description-font"><span>作者：</span><span>[美]弗兰纳里·奥康纳</span>
+                    </div>
+                    <span class="summary description-font">弗兰纳里•奥康纳最重要的一部小说集，含《好人难寻》《救人就是救自己》《人造黑人》《善良的乡下人》等篇章。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9789622022096/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img1.doubanio.com/lpic/s1581848.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">認識神</span>
+                    <div class="description-font"><span>作者：</span><span>巴刻  JAMES I PACKER</span>
+                    </div>
+                    <span class="summary description-font">身居教會未必就是認識神！熟讀神學也未必就會經歷神！那麼，怎樣才算認識神呢？作者以勇氣、邏輯、清晰的文字和熱切的心腸，維護並重申聖經中許多古老而永恆的主題，希望藉此呼喚基督徒進入純正而豐盛的信仰中，能真正地認識神，敬拜神，經歷神，活出有神同在的恩典人生。本書是巴刻博士的代表作，多年來造就了上千上萬的人。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787532622634/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s2714446.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">书读完了</span>
+                    <div class="description-font"><span>作者：</span><span>金克木</span>
+                    </div>
+                    <span class="summary description-font">金克木先生一代大家，其读书与治学自有独到幽微之处。惜其著作出版广而且杂，况未经人整理，故今日学子，得片羽易，而欲窥其全面则难。本书编者爬梳剔抉，参互考寻，从金克木生前约30部已出版著作中精选出有关读书治学方法的文章50余篇，分“书读完了”——读什么书、“福尔摩斯与读书得间”——怎么读书、读书、读人、读物——读通书三辑，其文说理叙事，皆清秀流利，全无晦涩难懂之处，普通读者循序渐进，或可一窥大家通人治学读书之堂奥。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787115261274/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img1.doubanio.com/lpic/s8846357.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">SQL反模式</span>
+                    <div class="description-font"><span>作者：</span><span>[美] Bill Karwin</span>
+                    </div>
+                    <span class="summary description-font">《SQL反模式》是一本广受好评的SQL图书。它介绍了如何避免在SQL的使用和开发中陷入一些常见却经常被忽略的误区。它通过讲述各种具体的案例，以及开发人员和使用人员在面对这些案例时经常采用的错误解决方案，来介绍如何识别、利用这些陷阱，以及面对问题时正确的解决手段。另外，《SQL反模式》还涉及了SQL的各级范式和针对它们的正确理解。\n《SQL反模式》适合SQL数据库开发人员与管理人员阅读。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787111251675/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s3316626.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">代码之道</span>
+                    <div class="description-font"><span>作者：</span><span>Eric Brechner</span>
+                    </div>
+                    <span class="summary description-font">本书总共有49个栏目，以一位微软内部人士的视角，揭示了关于软件编码、软件测试和项目管理的残酷现实。作者文笔犀利，见解独到，对软件行业内的很多常见问题提出了解决方案，并提供了最佳实践。通过阅读本书，你将了解到：怎样提高软件的质量和价值；怎样切合实际地管理项目的时间表、风险和规范书；怎样为常见的低效率开发瘦身；怎样应用过程改进方法，避免固执盲从；怎样驱动一个成功的、令你自己满意的职业生涯；以及怎样发展并管理一个欣欣向荣的团队。.\n本书提出的观点，是作者对过去在软件行业6个不同的公司、28年的工作经验的一次总结。本书不仅是微软内部员工的必读之书，它也同样适合于软件行业内其他所有的工程师和管理者阅读。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787115388018/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img1.doubanio.com/lpic/s28050499.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">编程导论</span>
+                    <div class="description-font"><span>作者：</span><span>[美] John V. Guttag</span>
+                    </div>
+                    <span class="summary description-font">本书基于MIT（麻省理工学院）的一门课程写成，主要目标是帮助读者掌握并熟练使用各种计算技术。本书涵盖了Python的大部分特性，重点介绍如何使用Python 这门语言，共包含编程基础、Python程序设计语言、理解计算的关键概念、计算问题的解决技术等四个方面。本书将Python语言特性和编程方法贯穿全书，目的是帮助读者在学习Python的同时掌握如何使用计算来解决有趣的问题。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9780387964805/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s27462813.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">The Science of Programming</span>
+                    <div class="description-font"><span>作者：</span><span>David Gries</span>
+                    </div>
+                    <span class="summary description-font">Describes basic programming principles and their step-by- step applications.Numerous examples are included.</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787111365709/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img1.doubanio.com/lpic/s28047189.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">Spring技术内幕（第2版）</span>
+                    <div class="description-font"><span>作者：</span><span>计文柯</span>
+                    </div>
+                    <span class="summary description-font">《spring技术内幕：深入解析spring架构与计原理(第2版)》是国内唯一一本系统分析spring源代码的著作，也是spring领域的问鼎之作，由业界拥有10余年开发经验的资深java专家亲自执笔，java开发者社区和spring开发者社区联袂推荐。本书第1版不仅在内容上获得了读者的广泛好评，而且在销量上也摘取了同类书的桂冠，曾经一度掀起java类图书的销售热潮。第2版不仅继承了第1版在内容组织和写作方式上的优点，而且还根据广大读者的反馈改进了若干细节上的不足。更为重要的是，结合spring的最新版本对过时的内容进行了更新，并增加了大量新内容，使本书更趋近于完美。\n《spring技术内幕：深入解析spring架构与计原理(第2版)》从源代码的角度对spring的内核和各个主要功能模块的架构、设计和实现原理进行了深入剖析。你不仅能从本书中参透spring框架的优秀架构和设计思想，还能从spring优雅的实现源码中一窥java语言的精髓。本书在开篇之前对spring的设计理念和整体架构进行了全面的介绍，能让读者从宏观上厘清spring各个功能模块之间的关系；第一部分详细分析了spring的核心：ioc容器和aop的实现，能帮助读者了解spring的运行机制；第二部分深入阐述了各种基于ioc容器和aop的java ee组件在spring中的实现原理；第三部分讲述了acegi安全框架、dm模块以及flex模块等基于spring的典型应用的设计与实现。\n无论你是java程序员、spring开发者，还是平台开发人员、系统架构师，抑或是对开源软件源代码着迷的代码狂人，都能从本书中受益。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787115421456/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img1.doubanio.com/lpic/s28807549.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">爱上Python</span>
+                    <div class="description-font"><span>作者：</span><span>[新加坡] Jamie Chan</span>
+                    </div>
+                    <span class="summary description-font">本书将复杂的编程概念分解成简单的步骤，简单易懂。作者通过多年的教学经验精心挑选出了有特点的例子，手把手地实例教学。这本书把看似冗长的编程学习精简，让书“读得很薄”，学习更加轻松。以一学就会的理念讲授Python是什么，需要哪些软件，相对应的模块怎么使用，让那些没有编程经验的初学者也能够轻松学习Python编程。</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-sm-4 book-container">
+            <a href="/book/9787115239075/detail" class="link">
+                <div class="col-md-4 no-padding">
+                    <img class="book-img cssshadow" src="https://img3.doubanio.com/lpic/s4549954.jpg">
+                </div>
+                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                    <span class="title">编程人生</span>
+                    <div class="description-font"><span>作者：</span><span>[美]PeterSeibel</span>
+                    </div>
+                    <span class="summary description-font">界顶尖的程序员是怎么走上编程道路的？\n他们的编程工作创造和改变了人类历史，在这一过程中都有哪些经验和教训？\n他们对计算机软件行业的过去、现在和未来有什么独到的看法和见解？\n他们对培养、发现、选拔、面试优秀的程序员有什么建议？\n放下手头的工作，听听这些软件先驱们的故事和建议，眼界可以更开阔，思路可以更清晰，方向可以更明确，人生可以更精彩。\n作者Peter Seibel采访了下面这15位世界级编程大师，本书是他在近80个小时的访谈录音基础上整理汇编而成的。\n        Jamie Zawinski：Lisp程序员，XEmacs开发者，Netscape浏览器和Mozilla核心开发者。\n        Brad Fitzpatrick：书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。\n        Douglas Crockford：JavaScript权威，JSON之父。现任Yahoo架构师。\n        Brendan Eich：JavaScript之父。Mozilla公司CTO。\n        Joshua Bloch：如果说Gosling是Java之父，那Bloch就是使Java真正成熟的教父，Java 2到5的核心架构师。现为Google首席Java架构师。\n        Joe Armstrong：Erlang和OTP（开放电信平台）框架之父。\n        Simon Peyton Jones：Haskell先驱。ACM会士。现为微软剑桥研究院研究员。\n        Peter Norvig：Google研发总监。ACM会士。\n        Guy Steele：精通多门语言，Common Lisp和Scheme开发者之一，Java语言规范作者之一，Common Lisp、Fortran、C、ECMAScript和Scheme等语言标准化委员会成员。高性能科学计算的语言Fortress设计者。ACM会士，美国工程院院士。Sun公司院士。\n        Dan Ingalls：与Alan Kay合作开发了Smalltalk，是该语言的真正实现者。现为Sun公司杰出工程师。\n        L. Peter Deutsch：JIT（即时）编译技术发明者之一，PostScript文件浏览器GhostScript的作者。ACM会士。Sun公司院士。\n        Ken Thompson：图灵奖得主。Unix之父。UTF-8 Unicode编码设计者。\n        Fran Allen：图灵奖第一位女得主。编译技术公认权威。IEEE院士，ACM会士，美国工程院院士。IBM院士。\n        Bernie Cosell：Internet奠基人，ARPANET最早的路由计算机IMP设计者之一。\n        Donald Knuth：多卷本经典巨著《计算机程序设计艺术》的作者，排版软件TeX的作者，图灵奖得主。</span>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+<div id="footer" class="flex-hor-center">
+    <span>© 2017-2020 yushu.im created by 七月</span>
+</div>
+</body>
+
+
+<script src="/static/3rd/jquery-3.2.1.min.js"></script>
+<script src="/static/3rd/bootstrap.min.js"></script>
+<script src="/static/js/base.js"></script>
+<script>
+    $SCRIPT_ROOT = "";
+</script>
+
+
+</html>

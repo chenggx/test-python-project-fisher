@@ -1,6 +1,6 @@
 import json
 
-from flask import jsonify, request
+from flask import jsonify, request, render_template, flash
 
 from app.libs.helper import is_isbn_or_key
 from app.spider.yushu_book import YushuBook
@@ -34,4 +34,5 @@ def search():
 
     books.fill(yushu_book, q)
 
-    return json.dumps(books, default=lambda o: o.__dict__)
+    # return json.dumps(books, default=lambda o: o.__dict__)
+    return render_template('search.html', books=books)
