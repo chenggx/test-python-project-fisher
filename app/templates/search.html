@@ -1,127 +1,22 @@
-<!DOCTYPE HTML>
-<html>
+{% extends 'base.html' %}
 
+{% block content %}
 
-<title>鱼书</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<link rel="stylesheet" href="{{ url_for('static', filename='/3rd/ui/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='/css/base.css') }}">
-<link rel="shortcut icon" href="{{ url_for('static', filename='/images/icon.png') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css') }}">
-
-
-<body>
-
-<div class="nav-self">
-    <div style="padding-top: inherit" class="container">
-        <form class="form-inline" action="/book/search" method="get">
-            <div class="flex-vertical-center-height">
-                <div class="col-md-2  col-xs-3 logo">
-                    <img src="{{ url_for('static', filename='/images/logo-yushu.png') }}"/>
-                </div>
-                <div style="margin-left:20px;" class="col-md-7  col-xs-6 input-group">
-                    <input name="q" type="text" placeholder="ISBN、图书名称"
-                           class="form-control input-sm">
-                    <span class="input-group-btn">
-                            <input class="btn btn-search" type="submit" value="搜索"/>
-                        </span>
-                </div>
-                <div class="col-md-3 col-xs-3" style="padding-right: 0">
-
-
-                    <div class="container-height flex-vertical-center login-box">
-
-                        <div style="height: 100%; width: 100%;display: flex; justify-content: flex-end; align-items: center">
-                            <a href="/login">登录</a>
-                            <a class="btn-end" href="/register">注册</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-<div class="sub-nav flex-vertical-center">
-    <div class="container" style="width: 100%">
-        <div class="row">
-            <div class="col-md-2 col-xs-3 col-md-offset-2">
-                <a id="recent" href="/"
-                   class="flex-vertical-hor-center">
-                    <img src="{{ url_for('static', filename='/images/upload.png') }}"/>
-                    <span>最近上传</span>
-                </a>
-            </div>
-            <div class="col-md-2 col-xs-3">
-                <a id="gifts" href="/my/gifts"
-                   class="flex-vertical-hor-center">
-                    <img src="{{ url_for('static', filename='/images/gift.png') }}"/>
-                    <span>赠送清单</span>
-                </a>
-            </div>
-            <div class="col-md-2 col-xs-3">
-                <a id="wishes" href="/my/wish"
-                   class="flex-vertical-hor-center">
-                    <img src="{{ url_for('static', filename='/images/wish.png') }}"/>
-                    <span>心愿清单</span>
-                </a>
-            </div>
-            <div class="col-md-2 col-xs-3">
-                <a id="pending" href="/pending"
-                   class="flex-vertical-hor-center">
-                    <img src="{{ url_for('static', filename='/images/fish.png') }}"/>
-                    <span>鱼漂</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class='container'>
-    <div class="row">
-
-
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-        </div>
-    </div>
     <div id="books" class="row">
-        {% for book in books.books %}
             <div class="col-sm-4 book-container">
-            <a href="/book/9787806579060/detail" class="link">
-                <div class="col-md-4 no-padding">
-                    <img class="book-img cssshadow" src="{{ book.image }}">
-                </div>
-                <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
-                    <span class="title">{{ book.title }}</span>
-                    <div class="description-font"><span>作者：</span><span>[美]海莲·汉芙</span>
+                <a href="/book/9787806579060/detail" class="link">
+                    <div class="col-md-4 no-padding">
+                        <img class="book-img cssshadow" src=https://img3.doubanio.com/lpic/s1464505.jpg>
                     </div>
-                    <span class="summary description-font">{{ book.summary }}</span>
-                </div>
-            </a>
-        </div>
-        {% endfor %}
+                    <div style="margin-left: 0;" class="col-md-8 flex-vertical book-info">
+                        <span class="title">村上春树作品集</span>
+                        <div class="description-font"><span>作者：</span><span><span>[日]村上春树</span></span>
+                        </div>
+                        <span class="summary description-font">听风的歌\n袋鼠通信\n发条鸟年代记（第一部：鹊贼篇 预言鸟篇）\n发条鸟年代记（第二部：刺鸟人篇）</span>
+                    </div>
+                </a>
+            </div>
 
     </div>
 
-</div>
-<div id="footer" class="flex-hor-center">
-    <span>© 2017-2020 yushu.im created by 七月</span>
-</div>
-</body>
-
-
-<script src="/static/3rd/jquery-3.2.1.min.js"></script>
-<script src="/static/3rd/bootstrap.min.js"></script>
-<script src="/static/js/base.js"></script>
-<script>
-    $SCRIPT_ROOT = "";
-</script>
-
-
-</html>
+{% endblock %}

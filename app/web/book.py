@@ -20,7 +20,7 @@ def search():
     books = BookCollection()
 
     if not form.validate():
-        return jsonify({'code': 400, 'msg': form.errors})
+        return render_template('search.html', books=books)
 
     q = form.q.data.strip()
     page = form.page.data
@@ -35,4 +35,4 @@ def search():
     books.fill(yushu_book, q)
 
     # return json.dumps(books, default=lambda o: o.__dict__)
-    return render_template('search.html', books=books)
+    return render_template('search_result.html', books=books,keyword=q)

@@ -1,10 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<!DOCTYPE HTML>
+<html>
+<title>鱼书</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='/3rd/ui/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/base.css') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='/images/icon.png') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css') }}">
+
+{% block css %}{% endblock %}
+
 <body>
 
+<div class="nav-self">
+    <div style="padding-top: inherit" class="container">
+        <form class="form-inline" action="{{ url_for('web.search') }}" method="get">
+            <div class="flex-vertical-center-height">
+                <div class="col-md-2  col-xs-3 logo">
+                    <img src="{{ url_for('static', filename='/images/logo-yushu.png') }}"/>
+                </div>
+                <div style="margin-left:20px;" class="col-md-7  col-xs-6 input-group">
+                    <input name="q" type="text" placeholder="ISBN、图书名称"
+                           class="form-control input-sm">
+                    <span class="input-group-btn">
+                            <input class="btn btn-search" type="submit" value="搜索"/>
+                        </span>
+                </div>
+                <div class="col-md-3 col-xs-3" style="padding-right: 0">
+
+
+                    <div class="container-height flex-vertical-center login-box">
+
+                        <div style="height: 100%; width: 100%;display: flex; justify-content: flex-end; align-items: center">
+                            <a href="/login">登录</a>
+                            <a class="btn-end" href="/register">注册</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="sub-nav flex-vertical-center">
+    <div class="container" style="width: 100%">
+        <div class="row">
+            <div class="col-md-2 col-xs-3 col-md-offset-2">
+                <a id="recent" href="/"
+                   class="flex-vertical-hor-center">
+                    <img src="{{ url_for('static', filename='/images/upload.png') }}"/>
+                    <span>最近上传</span>
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a id="gifts" href="/my/gifts"
+                   class="flex-vertical-hor-center">
+                    <img src="{{ url_for('static', filename='/images/gift.png') }}"/>
+                    <span>赠送清单</span>
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a id="wishes" href="/my/wish"
+                   class="flex-vertical-hor-center">
+                    <img src="{{ url_for('static', filename='/images/wish.png') }}"/>
+                    <span>心愿清单</span>
+                </a>
+            </div>
+            <div class="col-md-2 col-xs-3">
+                <a id="pending" href="/pending"
+                   class="flex-vertical-hor-center">
+                    <img src="{{ url_for('static', filename='/images/fish.png') }}"/>
+                    <span>鱼漂</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% block content %}{% endblock %}
+
+<div id="footer" class="flex-hor-center">
+    <span>© 2017-2020 yushu.im created by 七月</span>
+</div>
 </body>
+
+
+<script src="{{ url_for('static', filename='/3rd/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='/3rd/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='/js/base.js') }}"></script>
+<script>
+    $SCRIPT_ROOT = "";
+</script>
+
+{% block  javascript %}{% endblock %}
 </html>
