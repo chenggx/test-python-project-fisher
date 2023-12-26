@@ -22,7 +22,7 @@ class BookCollection:
     def __init__(self):
         self.total = 0
         self.books = []
-        self.keyword = ''
+        self.keyword = None
 
     def fill(self, yushu_book, keyword):
         self.total = yushu_book.total

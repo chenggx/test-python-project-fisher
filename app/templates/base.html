@@ -12,7 +12,8 @@
 
 <body>
 
-<div class="nav-self">
+{% block nav %}
+    <div class="nav-self">
     <div style="padding-top: inherit" class="container">
         <form class="form-inline" action="{{ url_for('web.search') }}" method="get">
             <div class="flex-vertical-center-height">
@@ -42,7 +43,7 @@
         </form>
     </div>
 </div>
-<div class="sub-nav flex-vertical-center">
+    <div class="sub-nav flex-vertical-center">
     <div class="container" style="width: 100%">
         <div class="row">
             <div class="col-md-2 col-xs-3 col-md-offset-2">
@@ -76,9 +77,28 @@
         </div>
     </div>
 </div>
+{% endblock %}
 
+<div class='container'>
+    <div class="row">
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                {% if message %}
+                    <div class="alert alert-warning" role="alert">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endwith %}
+        {% if form and form.errors %}
+            {% for key, error in form.errors.items() %}
+                <div class="alert alert-warning" role="alert">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
 
-{% block content %}{% endblock %}
+    {% block content %}{% endblock %}
+
+</div>
+
 
 <div id="footer" class="flex-hor-center">
     <span>© 2017-2020 yushu.im created by 七月</span>
