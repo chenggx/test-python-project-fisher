@@ -2,9 +2,12 @@ class BookViewModel:
     def __init__(self, book):
         self.title = book['title']
         self.publisher = str(book['publisher'])
+        self.pubdate = book['pubdate']
+        self.binding = book['binding']
         self.pages = book['pages'] or ''
         self.image = book['image']
         self.price = book['price']
+        self.isbn = book['isbn']
         self.summary = book['summary'] or ''
         self.author = '、'.join(book['author'])
 
