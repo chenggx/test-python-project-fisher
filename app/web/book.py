@@ -35,4 +35,9 @@ def search():
     books.fill(yushu_book, q)
 
     # return json.dumps(books, default=lambda o: o.__dict__)
-    return render_template('search_result.html', books=books,keyword=q)
+    return render_template('search_result.html', books=books, keyword=q)
+
+
+@web.route('/book/<isbn>/detail')
+def detail(isbn):
+    return render_template('book_detail.html')

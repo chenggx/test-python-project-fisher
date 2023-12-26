@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='3rd/ui/remodal.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='3rd/ui/remodal-default-theme.css') }}/">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/book-detail.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class='container'>
+        <div class="row"></div>
+
+        <div class="row book-container my-detail-row" style="width: 100%">
+            <div class="col-md-2">
+                <img class="book-img" src="https://img3.doubanio.com/lpic/s1326174.jpg"/>
+            </div>
+            <div class="col-md-5 flex-vertical detail-con">
+                <div>
+                    <h4>查令十字街84号</h4>
+                </div>
+                <div class="description-font-margin">
+                    <div>
+                        <span>作者:</span>
+                        <span>[美]海莲·汉芙</span>
+                    </div>
+                    <div>
+                        <span>出版社:</span>
+                        <span>译林出版社</span>
+                    </div>
+                    <div>
+                        <span>出版年：</span>
+                        <span>2005-05-01</span>
+                    </div>
+                    <div>
+                        <span>页数：</span>
+                        <span>135</span>
+                    </div>
+                    <div>
+                        <span>定价：</span>
+                        <span>￥18.00元</span>
+                    </div>
+                    <div>
+                        <span>精装：</span>
+                        <span>平装</span>
+                    </div>
+                    <div>
+                        <span>ISBN：</span>
+                        <span id="isbn">9787806579060</span>
+                    </div>
+
+                    <div class="color-count">
+                        <span>3人想要 / </span>
+                        <span>3人可赠送</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:30px; display: flex" class="row ">
+
+            <div class="col-md-1">
+                <a class="btn btn-outline"
+                   href="#modal">
+                    赠送此书
+                </a>
+            </div>
+            <div class="col-md-1 add-name">
+                <a class="btn btn-outline"
+                   href="/wish/book/9787806579060">
+                    加入到心愿清单
+                </a>
+            </div>
+
+        </div>
+        <div style="margin-top: 30px;" class="row">
+            <div class="col-md-2"><span class="description-title">内容简介</span></div>
+        </div>
+        <div style="margin-top:15px;" class="row">
+            <div class="col-md-11">
+                <p class="description-font">
+                    这本被全球人深深钟爱的书，记录了纽约女作家海莲和一家伦敦旧书店的书商弗兰克之间的书缘情缘。双方二十年间始终未曾谋面，相隔万里，深厚情意却能莫逆于心。无论是平淡生活中的讨书买书论书，还是书信中所蕴藏的难以言明的情感，都给人以强烈的温暖和信任。这本书既表现了海莲对书的激情之爱，也反映了她对弗兰克的精神之爱。海莲的执著、风趣、体贴、率真，跳跃于一封封书信的字里行间，使阅读成为一种愉悦而柔软的经历。来往的书信被海莲汇集成此书，被译成数十种文字流传。\n译者陈建铭是台湾一位古旧书店的工作人员，他在未被出版方邀作译者之前，便凭着自己对《查令十字街84号》的热爱动手开始翻译其中的章节。\n现在世间已无查令十字街84号的旧书店，但英国文学，古本图书，伦敦巷陌，书中的这些话题仍不断激起后来者的思念和共鸣。广播、舞台和银幕也钟情于这本爱书人的掌上明珠，每年都有世界各地的书迷到伦敦查令十字街朝圣，渐渐地，《查令十字街84号》成为全球爱书人之间的一个暗号。</p>
+            </div>
+        </div>
+
+        <div style="margin-top:30px; display: flex" class="row">
+            <div class="col-md-3"><span class="description-title">向他们请求此书</span></div>
+        </div>
+        <hr style="margin-top:5px;"/>
+
+        <div style="margin-top:30px; display: flex" class="row">
+            <div class="col-md-1" style="width: 11em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+                小灰侠
+            </div>
+            <div class="col-md-2 description-font">
+                上传于2023-11-28
+            </div>
+            <div class="col-md-2">
+                <a class="btn-normal"
+                   href="/drift/1769">向他请求此书</a>
+            </div>
+        </div>
+
+        <div style="margin-top:30px; display: flex" class="row">
+            <div class="col-md-1" style="width: 11em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+                忆白
+            </div>
+            <div class="col-md-2 description-font">
+                上传于2023-12-09
+            </div>
+            <div class="col-md-2">
+                <a class="btn-normal"
+                   href="/drift/1771">向他请求此书</a>
+            </div>
+        </div>
+
+        <div style="margin-top:30px; display: flex" class="row">
+            <div class="col-md-1" style="width: 11em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+                yawjsljc
+            </div>
+            <div class="col-md-2 description-font">
+                上传于2023-12-18
+            </div>
+            <div class="col-md-2">
+                <a class="btn-normal"
+                   href="/drift/1774">向他请求此书</a>
+            </div>
+        </div>
+
+
+        <div class="remodal" data-remodal-id="modal" role="dialog"
+             aria-labelledby="modal1Title" aria-describedby="modal1Desc"
+             data-remodal-options="closeOnOutsideClick: false">
+            <button data-remodal-action="close" class="remodal-close"
+                    aria-label="Close"></button>
+            <div>
+                <h5 class="diag-title">
+                    您确定拥有《查令十字街84号》这本书吗？</h5>
+                <p id="modal1Desc" class="description-font">
+                    如果您不想赠送此书，或者没有这本书，请不要随意发布虚假信息。谢谢你的支持和理解。
+                </p>
+            </div>
+            <br>
+            <button data-remodal-action="confirm" class="remodal-confirm">确定赠送</button>
+            <button data-remodal-action="cancel" class="remodal-cancel">不，算了</button>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script src="{{ url_for('static', filename='3rd/remodal.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/book-detail.js') }}"></script>
+{% endblock %}
+
+
+
+
+
+
+
+
