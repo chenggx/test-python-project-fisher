@@ -1,19 +1,21 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
+from flask_login import login_user
 
 from . import web
-from ..forms.auth import RegisterForm, LoginForm
-from ..models.base import db
-from ..models.user import User
+from app.forms.auth import RegisterForm, LoginForm
+from app.models.base import db
+from app.models.user import User
 
 
 @web.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
     if request.method == 'POST' and form.validate():
-        user = User()
-        user.set_attrs(form.data)
-        db.session().add(user)
-        db.session.commit()
+        with db.auto_commit():
+            user = User()
+            user.set_attrs(form.data)
+            db.session().add(user)
+
         return redirect(url_for('web.login'))
 
     return render_template('auth/register.html', form=form)
@@ -23,6 +25,14 @@ def register():
 def login():
     form = LoginForm(request.form)
     if request.method == 'POST' and form.validate():
-        # 登录成功
-        pass
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and user.check_password(form.password.data):
+            login_user(user)
+            url = request.args.get('next')
+            if not url or not url.startswith('/'):
+                url = url_for('web.index')
+            return redirect(url)
+        else:
+            flash('账号不存在或密码错误')
+
     return render_template('auth/login.html', form=form)

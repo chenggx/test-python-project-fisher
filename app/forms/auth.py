@@ -19,7 +19,6 @@ class RegisterForm(AuthForm):
     nickname = StringField(
         validators=[DataRequired(message='昵称不能为空'), Length(2, 10, message='昵称最少需要两个字符，最多10个字符')])
 
-    @staticmethod
-    def validate_email(field):
+    def validate_email(self, field):
         if User.query.filter_by(email=field.data).first():
             raise ValidationError('邮箱已经能被注册')
