@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 flex-vertical" style="padding: 0">
-                    <a href="/book/9787531324362/detail">
+                    <a href="{{ url_for('web.detail',isbn=wish.book.isbn) }}">
                         <span class="bg-info">{{ wish.wishes_count }}人想要</span>
                     </a>
                 </div>

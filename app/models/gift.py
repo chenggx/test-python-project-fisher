@@ -2,7 +2,7 @@ from sqlalchemy import Boolean, Column, Integer, ForeignKey, String, desc, func
 from sqlalchemy.orm import relationship
 
 from app.models.base import BaseModel, db
-from app.models.wish import Wish
+
 from app.spider.yushu_book import YushuBook
 
 
@@ -37,6 +37,7 @@ class Gift(BaseModel):
 
     @classmethod
     def get_wish_counts(cls, isbn_list):
+        from app.models.wish import Wish
         """
         获取每个 isbn 所对应的索取者的数量
         :param isbn_list:

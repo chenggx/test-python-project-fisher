@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for, flash
-from flask_login import login_user
+from flask_login import login_user, logout_user
 
 from . import web
 from app.forms.auth import RegisterForm, LoginForm
@@ -36,3 +36,9 @@ def login():
             flash('账号不存在或密码错误')
 
     return render_template('auth/login.html', form=form)
+
+
+@web.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('web.index'))

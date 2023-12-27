@@ -33,8 +33,13 @@
                         <div class="container-height flex-vertical-center login-box">
 
                             <div style="height: 100%; width: 100%;display: flex; justify-content: flex-end; align-items: center">
-                                <a href="/login">登录</a>
-                                <a class="btn-end" href="/register">注册</a>
+                                {% if not current_user.is_authenticated %}
+                                    <a href="{{ url_for('web.login') }}">登录</a>
+                                    <a class="btn-end" href="{{ url_for('web.register') }}">注册</a>
+                                {% else %}
+                                    <a href="{{ url_for('web.personal') }}">{{ current_user.nickname }}</a>
+                                    <a class="btn-end" href="{{ url_for('web.logout') }}">注销</a>
+                                {% endif %}
                             </div>
 
                         </div>
@@ -61,7 +66,7 @@
                     </a>
                 </div>
                 <div class="col-md-2 col-xs-3">
-                    <a id="wishes" href="/my/wish"
+                    <a id="wishes" href="{{ url_for('web.my_wishes') }}"
                        class="flex-vertical-hor-center">
                         <img src="{{ url_for('static', filename='/images/wish.png') }}"/>
                         <span>心愿清单</span>

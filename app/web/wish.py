@@ -4,6 +4,7 @@ from flask_login import login_required, current_user
 from . import web
 from ..models.base import db
 from ..models.wish import Wish
+from ..view_models.wish import MyWishes
 
 
 @web.route('/wish/book/<isbn>')
@@ -26,7 +27,11 @@ def satisfy_wish(wid):
     pass
 
 
-@web.route('/my/wishes')
+@web.route('/my/wish')
 @login_required
 def my_wishes():
-    return render_template('my_wishes.html', wishes=[])
+    wishes_of_main = Wish.get_my_wishes(current_user.id)
+    isbn_list = [wish.isbn for wish in wishes_of_main]
+    wish_count_list = Wish.get_gift_counts(isbn_list)
+    mine_wishes = MyWishes(wishes_of_main, wish_count_list)
+    return render_template('my_wishes.html', wishes=mine_wishes.gifts)
