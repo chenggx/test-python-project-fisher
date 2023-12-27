@@ -11,4 +11,4 @@ class Wish(BaseModel):
     isbn = Column(String(15), nullable=False, comment='isbn')
     # book = relationship('Book')
     # bid = Column(Integer, ForeignKey('book.id'))
-    launched = Column(Boolean, default=False)
+    launched = Column(Boolean, default=False, comment='是否已经获得')

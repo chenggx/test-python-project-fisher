@@ -4,6 +4,7 @@ from flask_login import login_required, current_user
 from . import web
 from app.models.base import db
 from app.models.gift import Gift
+from ..view_models.gift import MyGifts
 
 
 @web.route('/gifts/book/<isbn>')
@@ -21,3 +22,13 @@ def save_to_gifts(isbn):
         flash('不要重复添加')
 
     return redirect(url_for('web.detail', isbn=isbn))
+
+
+@web.route('/my/gifts')
+@login_required
+def my_gifts():
+    gifts_of_main = Gift.get_my_gifts(current_user.id)
+    isbn_list = [gift.isbn for gift in gifts_of_main]
+    wish_count_list = Gift.get_wish_counts(isbn_list)
+    my_gifts = MyGifts(gifts_of_main, wish_count_list)
+    return render_template('my_gifts.html', gifts=my_gifts.gifts)

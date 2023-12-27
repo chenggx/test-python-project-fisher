@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="row flex-vertical-center">
+        <div style="margin-top:20px;" class="col-md-6">
+            <span class="sub-title">我想赠送的书籍  共  {{ gifts|length }} 本</span>
+            <hr>
+        </div>
+    </div>
+
+    {% for gift in gifts %}
+        <div class="row my-gifts-row">
+            <div style="margin-bottom:30px; display: flex; justify-content: space-between"
+                 class="col-md-9 col-padding content-box">
+                <div style="display: flex; justify-content: flex-start; flex-grow: 1">
+                    <a href="{{ url_for('web.detail',isbn=gift.book.isbn) }}" class="">
+                        <div class="col-md-2 img-box">
+                            <img class="book-img-small shadow" src="{{ gift.book.image }}">
+                        </div>
+                    </a>
+                    <div style="margin-top:6px;" class="col-md-6 flex-vertical">
+                        <a href="{{ url_for('web.detail',isbn=gift.book.isbn) }}" class="">
+                            <span id="title" class="book-middle-title">{{ gift.book.title }}</span>
+                            <div style="margin-top:6px;" class="flex-vertical description-font">
+                                <span id="author">{{ gift.book.author }}</span>
+                                <span id="publisher">{{ gift.book.publisher }}</span>
+                                <span id="price">{{ gift.book.price }}</span>
+                                <span id="isbn">{{ gift.book.isbn }}</span>
+                            </div>
+                        </a>
+                        <a class="link-normal" href="/gifts/1776/redraw">
+                            撤销
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 flex-vertical" style="padding: 0">
+                    <a href="/book/9787531324362/detail">
+                        <span class="bg-info">{{ gift.wishes_count }}人想要</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+
+
+{% endblock %}
