@@ -1,4 +1,4 @@
-from flask import flash, redirect, url_for
+from flask import flash, redirect, url_for, render_template
 from flask_login import login_required, current_user
 
 from . import web
@@ -24,3 +24,9 @@ def save_to_wish(isbn):
 @web.route('/satisfy/wish/<int:wid>')
 def satisfy_wish(wid):
     pass
+
+
+@web.route('/my/wishes')
+@login_required
+def my_wishes():
+    return render_template('my_wishes.html', wishes=[])
