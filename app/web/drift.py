@@ -43,7 +43,8 @@ def send_drift(gid):
 @web.route('/pending')
 @login_required
 def pending():
-    return 'pending'
+    drifts = Drift.query.filter_by()
+    return render_template('pending.html')
 
 
 def save_drift(drift_form, current_gift):
