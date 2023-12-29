@@ -1,7 +1,11 @@
+from datetime import datetime, timedelta, timezone
+import jwt
+from flask import current_app
 from sqlalchemy import Column, String, Boolean, Float, Integer
 
 from .base import db, BaseModel
 from werkzeug.security import generate_password_hash, check_password_hash
+from itsdangerous import Serializer
 from flask_login import UserMixin
 
 from .gift import Gift
@@ -51,6 +55,37 @@ class User(UserMixin, BaseModel):
         wishing = Wish.query.filter_by(uid=self.id, isbn=isbn, launched=False).first()
         # 既不在赠送清单中，也不在心愿清单中才能添加
         if not gifting and not wishing:
+            return True
+        else:
+            return False
+
+    def token_generator(self, expiration=600):
+        """
+        生成重置密码需要的 token
+        :param expiration:过期时间
+        :return:
+        """
+        now = datetime.now(tz=timezone.utc)
+        dic = {
+            'exp': now + timedelta(seconds=expiration),
+            'iat': now,  # 发行时间
+            'iss': 'yushu',  # token签发者
+            'data': {  # 内容，一般存放该用户id和开始时间
+                'user_id': self.id
+            }
+        }
+        return jwt.encode(payload=dic, key=current_app.config['SECRET_KEY'])  # 加密生成字符串
+
+    @staticmethod
+    def reset_password(token, pwd_raw):
+        tk_decoder = jwt.decode(token, key=current_app.config['SECRET_KEY'], algorithms='HS256')
+        if tk_decoder:
+            user_id = tk_decoder['data']['user_id']
+            if user_id:
+                user = User.query.get(user_id)
+                with db.auto_commit():
+                    user.password = pwd_raw
+                    db.session.add(user)
             return True
         else:
             return False
