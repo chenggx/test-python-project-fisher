@@ -1,4 +1,6 @@
 from datetime import datetime, timedelta, timezone
+from math import floor
+
 import jwt
 from flask import current_app
 from sqlalchemy import Column, String, Boolean, Float, Integer
@@ -8,8 +10,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import Serializer
 from flask_login import UserMixin
 
+from .drift import Drift
 from .gift import Gift
 from .wish import Wish
+from ..libs.enums import PendingStatus
 from ..libs.helper import is_isbn_or_key
 from ..spider.yushu_book import YushuBook
 
@@ -28,12 +32,37 @@ class User(UserMixin, BaseModel):
     wx_name = Column(String(32))
 
     @property
+    def summary(self):
+        return dict(
+            nickname=self.nickname,
+            beans=self.beans,
+            email=self.email,
+            send_receive=str(f'{self.send_counter}/{self.receive_counter}')
+        )
+
+    @property
     def password(self):
         return self._password
 
     @password.setter
     def password(self, pwd_raw):
         self._password = generate_password_hash(pwd_raw)
+
+    def can_send_drift(self):
+        """
+        鱼豆必须足够（大于等于 1）
+        每索取两本书，自己就必须送出一本书
+        :return: boolean
+        """
+        if self.beans < 1:
+            return False
+
+        success_gift_count = Gift.query.filter_by(uid=self.id, launched=True).count()
+        success_receive_count = Drift.query.filter_by(requester_id=self.id, pending=PendingStatus.success).count()
+        if floor(success_receive_count / 2) <= floor(success_gift_count):
+            return True
+        else:
+            return False
 
     def check_password(self, pwd_raw):
         return check_password_hash(self._password, pwd_raw)

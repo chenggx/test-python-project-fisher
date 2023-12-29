@@ -16,6 +16,9 @@ class Gift(BaseModel):
     # bid = Column(Integer, ForeignKey('book.id'))
     launched = Column(Boolean, default=False, comment='是否已经被赠送')
 
+    def is_yourself_gift(self, uid):
+        return True if self.uid == uid else False
+
     @classmethod
     def recent(cls):
         return (cls.query.filter_by(launched=False)

@@ -19,6 +19,7 @@ class Wish(BaseModel):
         yushu_book = YushuBook()
         yushu_book.search_by_isbn(self.isbn)
         return yushu_book.first
+
     @classmethod
     def get_my_wishes(cls, uid):
         return cls.query.filter_by(uid=uid, launched=False).order_by(desc(cls.create_time)).all()
